@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.mealdetails.MealsDetailFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher_round"
+                tools:ignore="ContentDescription" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/margin_normal"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/margin_normal"/>
+
+            <TextView
+                android:id="@+id/tvMeal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                tools:text="Ramen"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintTop_toBottomOf="@id/ivImage"
+                app:layout_constraintEnd_toStartOf="@id/ivWeb"
+                app:layout_constraintStart_toStartOf="@id/guideLeft"
+                />
+
+            <ImageView
+                android:id="@+id/ivWeb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:src="@drawable/ic_web"
+                app:layout_constraintBottom_toBottomOf="@id/ivYoutube"
+                app:layout_constraintEnd_toStartOf="@id/ivYoutube"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/ivYoutube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_youtube"
+                app:layout_constraintBottom_toBottomOf="@id/tvMeal"
+                app:layout_constraintEnd_toEndOf="@id/guideRight"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tvIngredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/ingredients"
+                app:layout_constraintStart_toStartOf="@id/guideLeft"
+                app:layout_constraintTop_toBottomOf="@id/tvMeal"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingStart="@dimen/margin_normal"
+                android:paddingEnd="@dimen/margin_normal"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvIngredients"/>
+
+            <TextView
+                android:id="@+id/tvMeasures"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/measures"
+                app:layout_constraintTop_toBottomOf="@id/rvIngredients"
+                app:layout_constraintStart_toStartOf="@id/guideLeft"
+                app:layout_constraintEnd_toEndOf="@id/guideRight"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMeasures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingStart="@dimen/margin_normal"
+                android:paddingEnd="@dimen/margin_normal"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tvMeasures"/>
+
+            <TextView
+                android:id="@+id/tvHowToCook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_big"
+                android:text="@string/how_to_cook"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintTop_toBottomOf="@id/rvMeasures"
+                app:layout_constraintStart_toStartOf="@id/guideLeft"
+                app:layout_constraintEnd_toEndOf="@id/guideRight"/>
+
+            <TextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                tools:text="Cook the pasta following pack instructions. Heat the oil in a non-stick frying pan and cook the onion, garlic and chilli for 3-4 mins to soften. Stir in the tomato purée and cook for 1 min, then add the pilchards with their sauce. Cook, breaking up the fish with a wooden spoon, then add the olives and continue to cook for a few more mins. Drain the pasta and add to the pan with 2-3 tbsp of the cooking water. Toss everything together well, then divide between plates and serve, scattered with Parmesan."
+                app:layout_constraintTop_toBottomOf="@id/tvHowToCook"
+                app:layout_constraintStart_toStartOf="@id/guideLeft"
+                app:layout_constraintEnd_toEndOf="@id/guideRight"/>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:constraint_referenced_ids="ivImage,tvMeal,ivYoutube,tvIngredients,rvIngredients,tvMeasures,rvMeasures,tvHowToCook,tvInstructions"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:text="@string/loading_error"/>
+</FrameLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Deli App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="loading_error">An error ocurred. Please try again later.</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="measures">Measures</string>
+    <string name="how_to_cook">How to cook</string>
+    <string name="meals">Meals</string>
+    <string name="details">Details</string>
+</resources>
